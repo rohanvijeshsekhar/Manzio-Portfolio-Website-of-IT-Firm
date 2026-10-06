@@ -250,7 +250,7 @@ export function Navbar() {
     <>
       <div
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-500 ease-in-out flex justify-center pointer-events-none",
+          "sticky top-0 z-[100] w-full transition-all duration-500 ease-in-out flex justify-center pointer-events-none",
           isScrolled ? "pt-3 md:pt-4" : "pt-6 md:pt-8"
         )}
       >
