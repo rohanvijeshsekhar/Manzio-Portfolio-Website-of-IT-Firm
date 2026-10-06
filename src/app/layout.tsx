@@ -120,18 +120,19 @@ export default function RootLayout({
         </div>
 
         <SmoothScroll>
+          {/* Seamless floating navbar container overlaying all sections */}
+          <div className="fixed top-0 left-0 right-0 z-50 w-full pointer-events-none">
+            <AppContainer className="pointer-events-none">
+              <Navbar />
+            </AppContainer>
+          </div>
+
           <div className="relative flex flex-col min-h-screen w-full android-root-scroller" style={{ zIndex: 1 }}>
-            {/* Seamless floating navbar container overlaying the hero section */}
-            <div className="fixed top-0 left-0 right-0 z-50 w-full">
-              <AppContainer>
-                <Navbar />
-              </AppContainer>
-            </div>
             <main className="flex-grow w-full">
               {children}
             </main>
+            <Footer />
           </div>
-          <Footer />
         </SmoothScroll>
         <FloatingDeck />
       </body>

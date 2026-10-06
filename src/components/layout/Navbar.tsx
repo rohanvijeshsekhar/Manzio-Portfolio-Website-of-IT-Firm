@@ -250,13 +250,13 @@ export function Navbar() {
     <>
       <div
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-500 ease-in-out flex justify-center",
+          "sticky top-0 z-50 w-full transition-all duration-500 ease-in-out flex justify-center pointer-events-none",
           isScrolled ? "pt-3 md:pt-4" : "pt-6 md:pt-8"
         )}
       >
         {/* Main Floating Navbar Pill */}
         <motion.nav
-          className="rounded-full flex items-center justify-between relative"
+          className="rounded-full flex items-center justify-between relative pointer-events-auto"
           style={navStyle}
         >
           {/* Subtle glow layer behind the pill */}
@@ -416,7 +416,7 @@ export function Navbar() {
               transform: "translate3d(0,0,0)",
               willChange: "opacity, transform",
             }}
-            className="fixed inset-0 z-50 bg-[#060608]/95 backdrop-blur-md pt-16 pb-8 px-6 flex flex-col justify-between lg:hidden overflow-y-auto overscroll-contain"
+            className="fixed inset-0 z-50 bg-[#060608]/95 backdrop-blur-md pt-16 pb-8 px-6 flex flex-col justify-between lg:hidden overflow-y-auto overscroll-contain pointer-events-auto"
           >
             {/* Ambient visual background glow for mobile */}
             <div

@@ -20,7 +20,7 @@ export function Footer() {
   if (pathname === "/chat") return null;
 
   return (
-    <footer className="relative w-full bg-gradient-to-b from-black via-[#03010a] to-[#070214] pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden border-t border-white/[0.02] z-30">
+    <footer className="relative w-full bg-gradient-to-b from-black via-[#03010a] to-[#070214] pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden border-t border-white/[0.02] z-10">
       
       {/* 1. Deep Atmospheric Purple Glow (Static luxury diffusion) */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-purple-900/[0.07] blur-[130px] pointer-events-none -z-10" />
