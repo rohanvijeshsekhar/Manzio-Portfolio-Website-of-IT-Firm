@@ -542,8 +542,17 @@ export default function AboutPage() {
           <StickyPanel zIndex={40}>
             <section 
               ref={section4Ref}
-              className="relative w-full py-16 sm:py-20 md:py-24 px-6 sm:px-12 md:px-16 overflow-hidden flex flex-col items-center justify-center bg-gradient-to-b from-[#07070a] via-[#0b0b0f] to-[#07070a]"
+              className="relative w-full py-16 sm:py-24 md:py-28 px-6 sm:px-12 md:px-16 overflow-hidden flex flex-col items-center justify-center bg-[#050505]"
             >
+              {/* Subtle Cybernetic / Engineering Grid Texture (Matching Prinu reference) */}
+              <div 
+                className="absolute inset-0 pointer-events-none opacity-[0.035] select-none z-0"
+                style={{
+                  backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)`,
+                  backgroundSize: "36px 36px"
+                }}
+              />
+
               {/* Glowing Background Nebulas */}
               <motion.div
                 className="absolute top-20 left-10 w-64 h-64 rounded-full bg-purple-500/5 blur-3xl pointer-events-none"
@@ -560,164 +569,141 @@ export default function AboutPage() {
                 animate={isSection4InView ? "visible" : "hidden"}
                 variants={containerVariants}
               >
-                {/* Header Badge & Title */}
-                <motion.div className="flex flex-col items-center mb-16 text-center" variants={itemVariants}>
-                  <Badge variant="outline" className="mb-4 gap-2 border-purple-500/10 bg-purple-500/[0.02]">
-                    <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-                    <span className="text-[9px] font-semibold uppercase tracking-[0.25em] text-white/50">Message from Leadership</span>
-                  </Badge>
-                  <h2 
-                    className="text-4xl md:text-5xl font-semibold mb-4 bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent tracking-tight"
-                    style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 600 }}
-                  >
-                    A Word from Our Founder
-                  </h2>
-                  <motion.div
-                    className="w-24 h-[1.5px] bg-gradient-to-r from-purple-500 to-pink-500"
-                    initial={{ width: 0 }}
-                    animate={isSection4InView ? { width: 96 } : { width: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                  />
-                </motion.div>
-
-                {/* Two Column Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center">
+                {/* Main 2-Column Founder Feature (Prinu-inspired composition) */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 lg:gap-12 items-center">
                   
-                  {/* Left Column: Interactive Quote Card & Metrics Grid */}
-                  <motion.div variants={itemVariants} className="lg:col-span-7 relative order-2 lg:order-1 flex flex-col gap-8 w-full">
-                    <Card className="relative overflow-hidden border border-white/[0.18] bg-[#0c0c12]/60 backdrop-blur-md shadow-2xl rounded-[1.75rem]">
-                      <CardContent className="p-8 md:p-10 flex flex-col gap-6">
-                        <div className="flex items-start gap-4">
-                          <Quote className="w-8 h-8 text-purple-400 flex-shrink-0 rotate-180" />
-                          <p className="text-base sm:text-lg italic text-white/90 leading-relaxed font-medium">
-                            "At Manzio Creative Studio, we believe design is not just about visuals—it’s about creating meaningful digital experiences that connect people and businesses."
-                          </p>
-                        </div>
-
-                        <div className="space-y-4 text-white/70 text-sm sm:text-[15px] leading-relaxed tracking-wide">
-                          <p>
-                            Our goal is to bring innovation, precision, and strong strategic thinking to every project we work on. We don't just deliver solutions; we build long-term partnerships by understanding our clients' vision and transforming it into powerful digital outcomes.
-                          </p>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-6 border-t border-white/10">
-                          <div>
-                            <h3 
-                              className="text-lg font-semibold text-white tracking-tight"
-                              style={{ fontFamily: "Satoshi, sans-serif" }}
-                            >
-                              Nashim Nazar
-                            </h3>
-                            <p className="text-xs text-purple-400 font-medium uppercase tracking-wider mt-0.5">
-                              Founder & CEO, Manzio Creative Studio
-                            </p>
-                          </div>
-                          <Button 
-                            className="gap-2 group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white rounded-full text-xs font-semibold px-5 py-2.5 h-auto cursor-pointer"
-                            onClick={() => {
-                              const el = document.getElementById("footer");
-                              if (el) el.scrollIntoView({ behavior: "smooth" });
-                            }}
-                          >
-                            Get in Touch
-                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    {/* Stats Sub-Grid */}
-                    <motion.div
-                      className="grid grid-cols-3 gap-4 w-full"
-                      variants={containerVariants}
-                    >
-                      {stats.map((stat, index) => (
-                        <motion.div
-                          key={index}
-                          variants={itemVariants}
-                          whileHover={{ y: -5, borderColor: "rgba(168,85,247,0.4)" }}
-                          className="bg-[#0c0c12]/40 border border-white/[0.15] rounded-2xl p-4 text-center shadow-lg transition-all duration-300 backdrop-blur-sm"
-                        >
-                          <div className="flex justify-center mb-2">
-                            {stat.icon}
-                          </div>
-                          <div 
-                            className="text-xl sm:text-2xl font-bold text-white tracking-tight"
-                            style={{ fontFamily: "Satoshi, sans-serif" }}
-                          >
-                            {stat.value}
-                          </div>
-                          <div className="text-[10px] sm:text-xs text-white/50 tracking-wide font-medium uppercase mt-1">
-                            {stat.label}
-                          </div>
-                        </motion.div>
-                      ))}
-                    </motion.div>
-                  </motion.div>
-
-                  {/* Right Column: Large Founder Image Portrait */}
-                  <motion.div variants={itemVariants} className="lg:col-span-5 relative order-1 lg:order-2 flex justify-center w-full group">
-                    <div className="relative w-full max-w-sm sm:max-w-md">
+                  {/* Left Column: Stylized Circular Emblem + 3D Cutout Portrait */}
+                  <motion.div 
+                    variants={itemVariants}
+                    className="lg:col-span-5 flex items-center justify-center relative select-none"
+                  >
+                    <div className="relative w-full max-w-[360px] sm:max-w-[420px] aspect-[4/5] flex items-end justify-center">
                       
-                      {/* Image container */}
-                      <motion.div
-                        className="relative rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl"
-                        initial={{ scale: 0.95, opacity: 0 }}
-                        animate={isSection4InView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        whileHover={{ scale: 1.015 }}
-                      >
-                        <div className="aspect-[3/4] relative">
+                      {/* 1. Ambient Glow behind the Emblem */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[420px] h-[340px] sm:h-[420px] rounded-full bg-gradient-to-tr from-[#7c3aed]/30 to-[#ec4899]/25 blur-[95px] pointer-events-none -z-10" />
+
+                      {/* 2. Bold Brand Gradient Circular Emblem Badge */}
+                      <div className="absolute top-[16%] left-1/2 -translate-x-1/2 w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[370px] md:h-[370px] rounded-full bg-gradient-to-br from-[#7c3aed] via-[#6d28d9] to-[#be185d] shadow-[0_15px_60px_-15px_rgba(124,58,237,0.55)] overflow-hidden">
+                        
+                        {/* Inner radial depth vignette */}
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.15)_0%,transparent_50%,rgba(0,0,0,0.6)_100%)] pointer-events-none" />
+
+                        {/* Subtle ring border */}
+                        <div className="absolute inset-0 rounded-full border border-white/20 pointer-events-none" />
+                      </div>
+
+                      {/* 3. Geometric Monogram Emblem Outline Extension (Matching the geometric breakout element from Prinu design) */}
+                      <div className="absolute top-[28%] right-[2%] sm:right-[-4%] w-36 sm:w-44 h-36 sm:h-44 border-[14px] sm:border-[18px] border-purple-400/25 rounded-2xl rotate-45 pointer-events-none z-[5] blur-[0.5px]" />
+                      <div className="absolute top-[32%] right-[5%] sm:right-[-2%] w-28 sm:w-36 h-28 sm:h-36 border-2 border-pink-400/30 rounded-xl rotate-45 pointer-events-none z-[5]" />
+
+                      {/* 4. Cutout Portrait (Sitting in front and breaking out above the circle) */}
+                      <div className="relative z-10 w-full h-full flex items-end justify-center pointer-events-none">
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.94, y: 20 }}
+                          animate={isSection4InView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.94, y: 20 }}
+                          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                          className="w-full h-full flex items-end justify-center"
+                        >
                           <Image
-                            src="/founder-portrait.jpg"
+                            src="/founder-cutout.png"
                             alt="Nashim Nazar - Founder & CEO, Manzio Creative Studio"
-                            fill
-                            className="object-cover object-center"
-                            unoptimized
+                            width={440}
+                            height={520}
+                            className="w-auto h-full max-h-[460px] sm:max-h-[520px] md:max-h-[550px] object-contain object-bottom drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)]"
                             priority
+                            unoptimized
                           />
-                          {/* Vignette Overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#07070a]/90 via-transparent to-transparent pointer-events-none" />
-                        </div>
-                      </motion.div>
+                        </motion.div>
+                      </div>
 
-                      {/* Parallax Outer Edge Lighting Frame */}
-                      <motion.div
-                        className="absolute inset-0 border border-purple-500/20 rounded-3xl -m-4 z-[-1] pointer-events-none"
-                        initial={{ opacity: 0, scale: 1.05 }}
-                        animate={isSection4InView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.05 }}
-                        transition={{ duration: 0.8, delay: 0.6 }}
-                      />
-
-                      {/* Accent blur points */}
-                      <motion.div
-                        className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-purple-500/10 blur-2xl z-[-1]"
-                        animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0.5, 0.8, 0.5],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      />
-                      <motion.div
-                        className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-pink-500/10 blur-2xl z-[-1]"
-                        animate={{
-                          scale: [1, 1.3, 1],
-                          opacity: [0.5, 0.8, 0.5],
-                        }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: 1,
-                        }}
-                      />
                     </div>
                   </motion.div>
+
+                  {/* Right Column: Editorial Typography (Prinu-Inspired) */}
+                  <motion.div 
+                    variants={itemVariants}
+                    className="lg:col-span-7 flex flex-col justify-center text-left lg:pl-4 xl:pl-8"
+                  >
+                    {/* Role / Tracker Label */}
+                    <span 
+                      className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.28em] text-[#ec4899] mb-3 block"
+                      style={{ letterSpacing: "0.26em" }}
+                    >
+                      CEO AND FOUNDER
+                    </span>
+
+                    {/* Prominent High-Contrast Editorial Serif Name */}
+                    <h2 
+                      className="text-4xl sm:text-5xl md:text-6xl text-white font-normal tracking-tight mb-8"
+                      style={{ 
+                        fontFamily: '"Playfair Display", Georgia, "Times New Roman", serif',
+                        letterSpacing: "-0.015em",
+                        lineHeight: "1.1"
+                      }}
+                    >
+                      Nashim Nazar
+                    </h2>
+
+                    {/* Editorial Story Paragraphs */}
+                    <div className="flex flex-col gap-6 text-white/60 text-sm sm:text-base md:text-[15.5px] leading-[1.8] font-normal tracking-wide max-w-xl">
+                      <p>
+                        "At Manzio Creative Studio, we believe design is not just about visuals—it’s about creating meaningful digital experiences that connect people and businesses."
+                      </p>
+                      <p>
+                        Our goal is to bring innovation, precision, and strong strategic thinking to every project we work on. We don't just deliver solutions; we build long-term partnerships by understanding our clients' vision and transforming it into powerful digital outcomes.
+                      </p>
+                    </div>
+
+                    {/* Sleek Action CTA & Credentials */}
+                    <div className="flex flex-wrap items-center gap-5 mt-9 pt-2">
+                      <Button 
+                        className="gap-2 group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white rounded-full text-xs font-semibold px-6 py-3 h-auto cursor-pointer shadow-[0_4px_20px_-3px_rgba(168,85,247,0.4)] transition-all duration-300"
+                        onClick={() => {
+                          const el = document.getElementById("footer");
+                          if (el) el.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        Get in Touch
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                      <span className="text-[11px] text-white/35 font-medium tracking-widest uppercase">
+                        Manzio Creative Studio
+                      </span>
+                    </div>
+
+                  </motion.div>
+
                 </div>
+
+                {/* Bottom Metrics Row (Sleek, transparent luxury layout) */}
+                <motion.div
+                  variants={containerVariants}
+                  className="mt-16 sm:mt-20 pt-10 border-t border-white/[0.06] grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 w-full"
+                >
+                  {stats.map((stat, index) => (
+                    <motion.div
+                      key={index}
+                      variants={itemVariants}
+                      whileHover={{ y: -3 }}
+                      className="flex items-center gap-4.5 p-4 rounded-2xl bg-white/[0.015] border border-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:border-purple-500/20 hover:bg-white/[0.03]"
+                    >
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-purple-500/10 border border-purple-500/20 text-purple-400 shrink-0">
+                        {stat.icon}
+                      </div>
+                      <div className="flex flex-col">
+                        <div 
+                          className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-none"
+                          style={{ fontFamily: "Satoshi, sans-serif" }}
+                        >
+                          {stat.value}
+                        </div>
+                        <div className="text-[11px] text-white/45 tracking-wider font-medium uppercase mt-1">
+                          {stat.label}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
 
                 {/* Bottom careers Glass CTA block */}
                 <motion.div
