@@ -1,7 +1,7 @@
 :HL["/_next/static/chunks/0uy6twql0fzed.css","style"]
-:HL["/_next/static/chunks/022vim~7gsr3r.css","style"]
+:HL["/_next/static/chunks/0-d-lq~7d_s4u.css","style"]
 :HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap","style"]
 :HL["https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"clients","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"EGWPP2hGDx4Z19hlhjLJo"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"clients","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"exqKuIqgI7St0yceKE1tu"}

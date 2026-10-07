@@ -598,7 +598,7 @@ export default function AboutPage() {
                   {/* Right Column: Editorial Typography (Prinu-Inspired) */}
                   <motion.div 
                     variants={itemVariants}
-                    className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center text-left lg:pl-4 xl:pl-8"
+                    className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center text-left lg:pl-4 xl:pl-8 pt-4 sm:pt-6 lg:pt-12 xl:pt-14"
                   >
                     {/* Role / Tracker Label */}
                     <span 
@@ -628,23 +628,6 @@ export default function AboutPage() {
                       <p>
                         Our goal is to bring innovation, precision, and strong strategic thinking to every project we work on. We don't just deliver solutions; we build long-term partnerships by understanding our clients' vision and transforming it into powerful digital outcomes.
                       </p>
-                    </div>
-
-                    {/* Sleek Action CTA & Credentials */}
-                    <div className="flex flex-wrap items-center gap-5 mt-9 pt-2">
-                      <Button 
-                        className="gap-2 group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white rounded-full text-xs font-semibold px-6 py-3 h-auto cursor-pointer shadow-[0_4px_20px_-3px_rgba(168,85,247,0.4)] transition-all duration-300"
-                        onClick={() => {
-                          const el = document.getElementById("footer");
-                          if (el) el.scrollIntoView({ behavior: "smooth" });
-                        }}
-                      >
-                        Get in Touch
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                      <span className="text-[11px] text-white/35 font-medium tracking-widest uppercase">
-                        Manzio Creative Studio
-                      </span>
                     </div>
 
                   </motion.div>
