@@ -536,7 +536,7 @@ export default function AboutPage() {
           <StickyPanel zIndex={40}>
             <section 
               ref={section4Ref}
-              className="relative w-full py-16 sm:py-24 md:py-28 px-6 sm:px-12 md:px-16 overflow-hidden flex flex-col items-center justify-center bg-[#050505]"
+              className="relative w-full py-8 sm:py-12 md:py-14 px-6 sm:px-10 md:px-14 overflow-hidden flex flex-col items-center justify-center bg-[#050505]"
             >
               {/* Subtle Cybernetic / Engineering Grid Texture (Matching Prinu reference) */}
               <div 
@@ -549,45 +549,45 @@ export default function AboutPage() {
 
               {/* Glowing Background Nebulas */}
               <motion.div
-                className="absolute top-20 left-10 w-64 h-64 rounded-full bg-purple-500/5 blur-3xl pointer-events-none"
+                className="absolute top-10 left-10 w-56 h-56 rounded-full bg-purple-500/5 blur-3xl pointer-events-none"
                 style={{ y: section4Y1, rotate: section4Rotate1 }}
               />
               <motion.div
-                className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-pink-500/5 blur-3xl pointer-events-none"
+                className="absolute bottom-10 right-10 w-72 h-72 rounded-full bg-pink-500/5 blur-3xl pointer-events-none"
                 style={{ y: section4Y2 }}
               />
 
               <motion.div
-                className="w-full max-w-7xl relative z-10"
+                className="w-full max-w-6xl relative z-10"
                 initial="hidden"
                 animate={isSection4InView ? "visible" : "hidden"}
                 variants={containerVariants}
               >
                 {/* Main 2-Column Founder Feature (Prinu-inspired composition) */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 lg:gap-12 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-10 items-center">
                   
-                  {/* Left Column: Clean Cutout Portrait (Enlarged with Seamless Bottom Blend) */}
+                  {/* Left Column: Clean Cutout Portrait (Seamless Bottom Blend) */}
                   <motion.div 
                     variants={itemVariants}
-                    className="lg:col-span-5 xl:col-span-6 flex items-center justify-center relative select-none"
+                    className="lg:col-span-5 flex items-center justify-center relative select-none"
                   >
-                    <div className="relative w-full max-w-[420px] sm:max-w-[480px] md:max-w-[540px] lg:max-w-[580px] aspect-[4/5] flex items-end justify-center">
+                    <div className="relative w-full max-w-[340px] sm:max-w-[400px] md:max-w-[440px] flex items-end justify-center">
                       <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                        animate={isSection4InView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.95, y: 20 }}
+                        initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                        animate={isSection4InView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.95, y: 15 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                         className="w-full h-full flex items-end justify-center"
                         style={{
-                          maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%)",
-                          WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%)",
+                          maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0) 98%)",
+                          WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,0) 98%)",
                         }}
                       >
                         <Image
                           src="/founder-cutout.png"
                           alt="Nashim Nazar - Founder & CEO, Manzio Creative Studio"
-                          width={600}
-                          height={720}
-                          className="w-auto h-full max-h-[520px] sm:max-h-[600px] md:max-h-[660px] lg:max-h-[720px] object-contain object-bottom drop-shadow-[0_25px_40px_rgba(0,0,0,0.85)]"
+                          width={520}
+                          height={620}
+                          className="w-auto h-full max-h-[420px] sm:max-h-[480px] md:max-h-[510px] object-contain object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)]"
                           priority
                           unoptimized
                         />
@@ -598,7 +598,7 @@ export default function AboutPage() {
                   {/* Right Column: Editorial Typography (Prinu-Inspired) */}
                   <motion.div 
                     variants={itemVariants}
-                    className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center text-left lg:pl-4 xl:pl-8 pt-4 sm:pt-6 lg:pt-12 xl:pt-14"
+                    className="lg:col-span-7 flex flex-col justify-center text-left lg:pl-2 xl:pl-6"
                   >
                     {/* Role / Tracker Label */}
                     <span 
