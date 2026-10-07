@@ -244,12 +244,6 @@ export default function AboutPage() {
   const section4Y2 = useTransform(section4ScrollYProgress, [0, 1], [0, 60]);
   const section4Rotate1 = useTransform(section4ScrollYProgress, [0, 1], [0, 15]);
 
-  const stats = [
-    { icon: <Award className="w-5 h-5 text-purple-400" />, value: "50+", label: "Projects Delivered" },
-    { icon: <Users className="w-5 h-5 text-purple-400" />, value: "100%", label: "Client Commitment" },
-    { icon: <TrendingUp className="w-5 h-5 text-purple-400" />, value: "98%", label: "Client Retention" },
-  ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -572,50 +566,28 @@ export default function AboutPage() {
                 {/* Main 2-Column Founder Feature (Prinu-inspired composition) */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 lg:gap-12 items-center">
                   
-                  {/* Left Column: Stylized Circular Emblem + 3D Cutout Portrait */}
+                  {/* Left Column: Clean Cutout Portrait (No Background Graphic) */}
                   <motion.div 
                     variants={itemVariants}
                     className="lg:col-span-5 flex items-center justify-center relative select-none"
                   >
-                    <div className="relative w-full max-w-[360px] sm:max-w-[420px] aspect-[4/5] flex items-end justify-center">
-                      
-                      {/* 1. Ambient Glow behind the Emblem */}
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[420px] h-[340px] sm:h-[420px] rounded-full bg-gradient-to-tr from-[#7c3aed]/30 to-[#ec4899]/25 blur-[95px] pointer-events-none -z-10" />
-
-                      {/* 2. Bold Brand Gradient Circular Emblem Badge */}
-                      <div className="absolute top-[16%] left-1/2 -translate-x-1/2 w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[370px] md:h-[370px] rounded-full bg-gradient-to-br from-[#7c3aed] via-[#6d28d9] to-[#be185d] shadow-[0_15px_60px_-15px_rgba(124,58,237,0.55)] overflow-hidden">
-                        
-                        {/* Inner radial depth vignette */}
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,0.15)_0%,transparent_50%,rgba(0,0,0,0.6)_100%)] pointer-events-none" />
-
-                        {/* Subtle ring border */}
-                        <div className="absolute inset-0 rounded-full border border-white/20 pointer-events-none" />
-                      </div>
-
-                      {/* 3. Geometric Monogram Emblem Outline Extension (Matching the geometric breakout element from Prinu design) */}
-                      <div className="absolute top-[28%] right-[2%] sm:right-[-4%] w-36 sm:w-44 h-36 sm:h-44 border-[14px] sm:border-[18px] border-purple-400/25 rounded-2xl rotate-45 pointer-events-none z-[5] blur-[0.5px]" />
-                      <div className="absolute top-[32%] right-[5%] sm:right-[-2%] w-28 sm:w-36 h-28 sm:h-36 border-2 border-pink-400/30 rounded-xl rotate-45 pointer-events-none z-[5]" />
-
-                      {/* 4. Cutout Portrait (Sitting in front and breaking out above the circle) */}
-                      <div className="relative z-10 w-full h-full flex items-end justify-center pointer-events-none">
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.94, y: 20 }}
-                          animate={isSection4InView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.94, y: 20 }}
-                          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                          className="w-full h-full flex items-end justify-center"
-                        >
-                          <Image
-                            src="/founder-cutout.png"
-                            alt="Nashim Nazar - Founder & CEO, Manzio Creative Studio"
-                            width={440}
-                            height={520}
-                            className="w-auto h-full max-h-[460px] sm:max-h-[520px] md:max-h-[550px] object-contain object-bottom drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)]"
-                            priority
-                            unoptimized
-                          />
-                        </motion.div>
-                      </div>
-
+                    <div className="relative w-full max-w-[380px] sm:max-w-[440px] aspect-[4/5] flex items-end justify-center">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                        animate={isSection4InView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.95, y: 20 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                        className="w-full h-full flex items-end justify-center"
+                      >
+                        <Image
+                          src="/founder-cutout.png"
+                          alt="Nashim Nazar - Founder & CEO, Manzio Creative Studio"
+                          width={440}
+                          height={520}
+                          className="w-auto h-full max-h-[460px] sm:max-h-[520px] md:max-h-[560px] object-contain object-bottom drop-shadow-[0_25px_35px_rgba(0,0,0,0.9)]"
+                          priority
+                          unoptimized
+                        />
+                      </motion.div>
                     </div>
                   </motion.div>
 
@@ -675,40 +647,10 @@ export default function AboutPage() {
 
                 </div>
 
-                {/* Bottom Metrics Row (Sleek, transparent luxury layout) */}
-                <motion.div
-                  variants={containerVariants}
-                  className="mt-16 sm:mt-20 pt-10 border-t border-white/[0.06] grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 w-full"
-                >
-                  {stats.map((stat, index) => (
-                    <motion.div
-                      key={index}
-                      variants={itemVariants}
-                      whileHover={{ y: -3 }}
-                      className="flex items-center gap-4.5 p-4 rounded-2xl bg-white/[0.015] border border-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:border-purple-500/20 hover:bg-white/[0.03]"
-                    >
-                      <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-purple-500/10 border border-purple-500/20 text-purple-400 shrink-0">
-                        {stat.icon}
-                      </div>
-                      <div className="flex flex-col">
-                        <div 
-                          className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-none"
-                          style={{ fontFamily: "Satoshi, sans-serif" }}
-                        >
-                          {stat.value}
-                        </div>
-                        <div className="text-[11px] text-white/45 tracking-wider font-medium uppercase mt-1">
-                          {stat.label}
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-
                 {/* Bottom careers Glass CTA block */}
                 <motion.div
                   variants={itemVariants}
-                  className="mt-20 bg-gradient-to-r from-purple-500/[0.04] to-pink-500/[0.02] backdrop-blur-md border border-white/[0.16] rounded-3xl p-8 md:p-12 text-center relative overflow-hidden group/cta"
+                  className="mt-16 sm:mt-20 bg-gradient-to-r from-purple-500/[0.04] to-pink-500/[0.02] backdrop-blur-md border border-white/[0.16] rounded-3xl p-8 md:p-12 text-center relative overflow-hidden group/cta"
                 >
                   {/* Subtle background tracer line */}
                   <div className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
