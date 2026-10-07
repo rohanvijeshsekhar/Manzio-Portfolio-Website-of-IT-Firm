@@ -566,24 +566,28 @@ export default function AboutPage() {
                 {/* Main 2-Column Founder Feature (Prinu-inspired composition) */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 lg:gap-12 items-center">
                   
-                  {/* Left Column: Clean Cutout Portrait (No Background Graphic) */}
+                  {/* Left Column: Clean Cutout Portrait (Enlarged with Seamless Bottom Blend) */}
                   <motion.div 
                     variants={itemVariants}
-                    className="lg:col-span-5 flex items-center justify-center relative select-none"
+                    className="lg:col-span-5 xl:col-span-6 flex items-center justify-center relative select-none"
                   >
-                    <div className="relative w-full max-w-[380px] sm:max-w-[440px] aspect-[4/5] flex items-end justify-center">
+                    <div className="relative w-full max-w-[420px] sm:max-w-[480px] md:max-w-[540px] lg:max-w-[580px] aspect-[4/5] flex items-end justify-center">
                       <motion.div
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={isSection4InView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.95, y: 20 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                         className="w-full h-full flex items-end justify-center"
+                        style={{
+                          maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%)",
+                          WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%)",
+                        }}
                       >
                         <Image
                           src="/founder-cutout.png"
                           alt="Nashim Nazar - Founder & CEO, Manzio Creative Studio"
-                          width={440}
-                          height={520}
-                          className="w-auto h-full max-h-[460px] sm:max-h-[520px] md:max-h-[560px] object-contain object-bottom drop-shadow-[0_25px_35px_rgba(0,0,0,0.9)]"
+                          width={600}
+                          height={720}
+                          className="w-auto h-full max-h-[520px] sm:max-h-[600px] md:max-h-[660px] lg:max-h-[720px] object-contain object-bottom drop-shadow-[0_25px_40px_rgba(0,0,0,0.85)]"
                           priority
                           unoptimized
                         />
@@ -594,7 +598,7 @@ export default function AboutPage() {
                   {/* Right Column: Editorial Typography (Prinu-Inspired) */}
                   <motion.div 
                     variants={itemVariants}
-                    className="lg:col-span-7 flex flex-col justify-center text-left lg:pl-4 xl:pl-8"
+                    className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center text-left lg:pl-4 xl:pl-8"
                   >
                     {/* Role / Tracker Label */}
                     <span 
@@ -646,36 +650,6 @@ export default function AboutPage() {
                   </motion.div>
 
                 </div>
-
-                {/* Bottom careers Glass CTA block */}
-                <motion.div
-                  variants={itemVariants}
-                  className="mt-16 sm:mt-20 bg-gradient-to-r from-purple-500/[0.04] to-pink-500/[0.02] backdrop-blur-md border border-white/[0.16] rounded-3xl p-8 md:p-12 text-center relative overflow-hidden group/cta"
-                >
-                  {/* Subtle background tracer line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
-                  
-                  <h3 
-                    className="text-2xl md:text-3xl font-semibold text-white mb-4 tracking-tight"
-                    style={{ fontFamily: "Satoshi, sans-serif" }}
-                  >
-                    Join Us on Our Journey
-                  </h3>
-                  <p className="text-white/50 mb-8 max-w-2xl mx-auto text-sm sm:text-[15px] leading-relaxed font-normal tracking-wide">
-                    We are always looking for passionate creators, developers, and visionaries who share our drive for digital perfection. Let's craft the future of the internet together.
-                  </p>
-                  <Button 
-                    size="lg" 
-                    className="gap-2 group bg-white text-black hover:bg-white/90 rounded-full text-xs font-bold px-6 py-3 h-auto cursor-pointer"
-                    onClick={() => {
-                      const el = document.getElementById("footer");
-                      if (el) el.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  >
-                    Explore Careers
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-black" />
-                  </Button>
-                </motion.div>
               </motion.div>
 
               <Glow variant="center" className="opacity-30" />
