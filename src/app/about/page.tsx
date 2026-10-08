@@ -5,7 +5,6 @@ import { motion, useMotionValue, useSpring, useMotionTemplate, useScroll, useTra
 import Image from "next/image";
 import { AppContainer } from "@/components/ui/AppContainer";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
-import { HeroSplineBackground } from "@/components/ui/galaxy-interactive-hero-section";
 import { MagicText } from "@/components/ui/magic-text";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -310,36 +309,86 @@ export default function AboutPage() {
         }}
       />
 
-      {/* Space Singularity Cinematic 100vh Hero Section */}
-      <section className="relative w-full max-w-full h-screen min-h-[560px] flex flex-col items-center justify-center overflow-hidden z-20 px-2 sm:px-4">
+      {/* ── CINEMATIC TEAM HERO BANNER ── */}
+      <section className="relative w-full max-w-full min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-start overflow-hidden z-20 px-4 pt-32 sm:pt-40 md:pt-44 pb-20">
 
-        {/* Galaxy Spline 3D Background */}
+        {/* Background Image Layer with Cinematic Atmospheric Grading */}
         <div className="absolute inset-0 w-full h-full z-0 select-none overflow-hidden pointer-events-none">
-          <HeroSplineBackground />
+          <motion.div
+            initial={{ scale: 1.05, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full h-full"
+          >
+            <Image
+              src="/about-banner.png"
+              alt="Manzio Creative Studio Team at Work"
+              fill
+              priority
+              unoptimized
+              className="object-cover object-[center_75%] sm:object-[center_72%] opacity-90"
+            />
+          </motion.div>
+
+          {/* Seamless Top Blend into Global #050505 Header */}
+          <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[#050505] via-[#050505]/85 to-transparent" />
+
+          {/* Seamless Bottom Blend into Sticky Cards */}
+          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050505] via-[#050505]/75 to-transparent" />
+
+          {/* Side Vignettes for cinematic widescreen focus */}
+          <div className="hidden sm:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505]/60 to-transparent" />
+          <div className="hidden sm:block absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050505]/60 to-transparent" />
+
+          {/* Signature Studio Violet Atmospheric Tint */}
+          <div 
+            className="absolute inset-0 opacity-20 mix-blend-screen pointer-events-none"
+            style={{
+              background: "radial-gradient(ellipse at 50% 25%, rgba(168, 85, 247, 0.22) 0%, rgba(236, 72, 153, 0.05) 50%, transparent 80%)"
+            }}
+          />
         </div>
 
-        {/* Perfectly Centered Cinematic Typography */}
-        <div className="relative z-30 w-full max-w-4xl px-4 sm:px-6 text-center select-text pointer-events-none">
+        {/* Hero Content with High-Fidelity Typography */}
+        <div className="relative z-30 w-full max-w-4xl px-4 sm:px-6 text-center select-text pointer-events-none flex flex-col items-center">
+          
+          {/* Studio Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/20 bg-black/60 backdrop-blur-md mb-5 pointer-events-auto shadow-[0_0_20px_rgba(168,85,247,0.12)]"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />
+            <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/70">
+              Manzio Creative Studio
+            </span>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 25, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white tracking-[-0.03em] leading-[1.2] text-center pointer-events-auto"
+            transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="text-white tracking-[-0.03em] leading-[1.18] text-center pointer-events-auto"
             style={{
               fontFamily: "Satoshi, sans-serif",
-              fontSize: "clamp(22px, 4.2vw, 48px)",
-              textShadow: "0 0 30px rgba(255, 255, 255, 0.22), 0 0 60px rgba(139, 92, 246, 0.12)",
+              fontSize: "clamp(24px, 4.4vw, 52px)",
+              textShadow: "0 0 35px rgba(255, 255, 255, 0.25), 0 0 65px rgba(139, 92, 246, 0.16)",
             }}
           >
-            <span className="block text-white/90 font-bold tracking-[-0.03em] mb-2 text-[1.08em] sm:text-[1.05em]">Digital Experiences</span>
-            <span className="block text-white font-bold tracking-[-0.04em] pb-1 text-[1.58em] sm:text-[1.7em] leading-tight sm:whitespace-nowrap">Engineered With Obsession</span>
+            <span className="block text-white/90 font-bold tracking-[-0.03em] mb-2 text-[1.05em] sm:text-[1.02em]">
+              Digital Experiences
+            </span>
+            <span className="block text-white font-bold tracking-[-0.04em] pb-1 text-[1.48em] sm:text-[1.62em] leading-tight sm:whitespace-nowrap">
+              Engineered With Obsession
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white/60 font-sans font-normal tracking-[0.01em] text-xs sm:text-sm md:text-[15px] max-w-sm sm:max-w-xl mx-auto mt-4 sm:mt-6 leading-relaxed select-text pointer-events-auto px-2 sm:px-0 text-pretty"
+            className="text-white/70 font-sans font-normal tracking-[0.01em] text-xs sm:text-sm md:text-[15.5px] max-w-sm sm:max-w-xl mx-auto mt-4 sm:mt-5 leading-relaxed select-text pointer-events-auto px-2 sm:px-0 text-pretty"
           >
             Backed by 8+ years of excellence, we build high-performance digital solutions that drive growth and innovation.
           </motion.p>
@@ -605,7 +654,7 @@ export default function AboutPage() {
                       className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.28em] text-[#ec4899] mb-3 block"
                       style={{ letterSpacing: "0.26em" }}
                     >
-                      CEO AND FOUNDER
+                      FOUNDER AND CEO
                     </span>
 
                     {/* Prominent High-Contrast Editorial Serif Name */}

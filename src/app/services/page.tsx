@@ -2,64 +2,114 @@
 
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { ZoomParallax } from "@/components/ui/zoom-parallax";
 import { cn } from "@/utils/cn";
 import { Component as ParallaxScrollFeatureSection } from "@/components/ui/parallax-scroll-feature-section";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
-
-const PARALLAX_IMAGES = [
-  {
-    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1280&h=800&fit=crop&crop=entropy&auto=format&q=80",
-    alt: "Software engineering and development team collaborating",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1280&h=720&fit=crop&crop=entropy&auto=format&q=80",
-    alt: "Code editor and web development syntax",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=1600&fit=crop&crop=entropy&auto=format&q=80",
-    alt: "Brand identity, typography and design system guidelines",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&h=900&fit=crop&crop=entropy&auto=format&q=80",
-    alt: "Full stack engineering and JavaScript application",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=1000&fit=crop&crop=entropy&auto=format&q=80",
-    alt: "Digital marketing growth and analytics performance dashboard",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=1280&h=800&fit=crop&crop=entropy&auto=format&q=80",
-    alt: "Frontend UI architecture and Vue React code",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&h=600&fit=crop&crop=entropy&auto=format&q=80",
-    alt: "Python algorithms and machine learning code",
-  },
-];
 
 export default function ServicesPage() {
   return (
     <div className="w-full bg-[#050505] text-white overflow-x-clip">
 
-      {/* ── HERO: ZoomParallax Showcase ── */}
-      <section className="relative w-full">
-        <ZoomParallax images={PARALLAX_IMAGES}>
-          {/* Radial spotlight */}
-          <div
-            aria-hidden="true"
-            className={cn(
-              "pointer-events-none absolute -top-1/2 left-1/2 h-[120vmin] w-[120vmin] -translate-x-1/2 rounded-full",
-              "bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1),transparent_50%)]",
-              "blur-[30px]"
-            )}
+      {/* ── HERO BANNER: THEME OF EDITORIAL IMAGE 3 WITH DESK SCENE ── */}
+      <section className="relative w-full min-h-[85vh] sm:min-h-[88vh] lg:min-h-[92vh] flex items-center justify-center overflow-hidden bg-[#050505] pt-28 sm:pt-32 pb-16 sm:pb-20">
+
+        {/* 3/4 Desktop Image Layer spanning across the right side */}
+        <div className="absolute inset-y-0 right-0 w-full lg:w-[75%] h-full z-0 select-none overflow-hidden pointer-events-none">
+          <motion.div
+            initial={{ scale: 1.05, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full h-full"
+          >
+            <Image
+              src="/services-banner.png"
+              alt="Services Crafted for Ambitious Brands"
+              fill
+              priority
+              unoptimized
+              className="object-cover object-right sm:object-center opacity-85 lg:opacity-95"
+            />
+          </motion.div>
+
+          {/* Left Gradient Fade: Seamless blend from pure #050505 into the image */}
+          <div className="absolute inset-y-0 left-0 w-48 sm:w-80 lg:w-[45%] bg-gradient-to-r from-[#050505] via-[#050505]/90 to-transparent z-10" />
+
+          {/* Top Gradient Fade: Smooth blend for navbar */}
+          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#050505] via-[#050505]/75 to-transparent z-10" />
+
+          {/* Bottom Gradient Fade: Smooth blend into next section */}
+          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#050505] via-[#050505]/85 to-transparent z-10" />
+
+          {/* Subtle Ambient Studio Glow */}
+          <div 
+            className="absolute inset-0 opacity-20 mix-blend-screen pointer-events-none z-10"
+            style={{
+              background: "radial-gradient(ellipse at 70% 40%, rgba(168, 85, 247, 0.18) 0%, rgba(236, 72, 153, 0.05) 50%, transparent 80%)"
+            }}
           />
-          <h1 className="text-center text-4xl font-bold">
-            Services crafted for Ambitious brands
-          </h1>
-        </ZoomParallax>
+        </div>
+
+        {/* Mobile-only background underlay so text is 100% readable on small screens */}
+        <div className="block lg:hidden absolute inset-0 bg-[#050505]/75 backdrop-blur-[2px] z-10 pointer-events-none" />
+
+        {/* 1/4 Content Area at Left */}
+        <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 sm:px-12 md:px-16 lg:px-20">
+          <div className="max-w-xl lg:max-w-[420px] xl:max-w-[480px] flex flex-col items-start text-left">
+
+            {/* Pill Badge matching Image 3 theme with dot indicator */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/25 bg-[#0a0a0f]/80 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(168,85,247,0.12)]"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />
+              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/70">
+                Services
+              </span>
+            </motion.div>
+
+            {/* Main Heading — Preserving original font style (Satoshi, sans-serif, font-bold) */}
+            <motion.h1
+              initial={{ opacity: 0, y: 25, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1.2, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="text-white text-3xl sm:text-4xl lg:text-[44px] xl:text-[50px] font-bold tracking-tight leading-[1.12] mb-6 text-balance"
+              style={{
+                fontFamily: "Satoshi, sans-serif",
+                textShadow: "0 0 30px rgba(255, 255, 255, 0.22), 0 0 60px rgba(139, 92, 246, 0.12)",
+              }}
+            >
+              Services crafted for Ambitious brands
+            </motion.h1>
+
+            {/* Description matching Image 3 layout */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="text-white/60 font-sans font-normal text-sm sm:text-base leading-relaxed tracking-wide mb-8 max-w-md text-pretty"
+            >
+              From bespoke digital architecture and high-performance engineering to immersive branding and scalable enterprise software.
+            </motion.p>
+
+            {/* Subtle editorial indicator matching Image 3's bottom pill tag */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.55 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/[0.08] bg-white/[0.02] text-[11px] font-mono tracking-wider text-white/40"
+            >
+              <span className="h-1 w-1 rounded-full bg-purple-400" />
+              <span>Full-Cycle Development & Design</span>
+            </motion.div>
+
+          </div>
+        </div>
+
       </section>
 
       {/* ── TRANSITION TEXT CYCLE ── */}
